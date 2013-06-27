@@ -1,0 +1,35 @@
+<header class="clearfix">
+  <div class="head-icon left" id="registe_return">
+    <%= image_tag("msite/fanhui_@2x_03.png") %>
+  </div>
+  <div class="cut-off"></div>
+  <div id="title">
+    测试滚动加载
+  </div>
+</header>
+<section>
+  <ul data-role="listview" id="content">
+    <% @users.each do |user| %>
+     <li><a href="#"><%= user.id %></a></li>
+    <% end %>
+  </ul>
+</section>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#content').scrollPagination({
+    url     : '/users/load_data',
+    nop     : 10,
+    offset  : 10,
+    delay   : 500,
+    scroll  : true,
+    'beforeLoad': function(){
+      $.mobile.loading('show');
+    },
+    'afterLoad': function(elementsLoaded){
+      $.mobile.loading('hide');
+      $('#content').listview('refresh');
+    }
+  });
+});
+</script>

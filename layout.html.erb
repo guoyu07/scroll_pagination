@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Msite new</title>
+  <meta content='text/html; charset=UTF-8' http-equiv='content-type'>
+  <meta content='user-scalable=no,width=device-width, initial-scale=1.0, maximum-scale=1.0' name='viewport'>
+  <meta content='upsmart' name='apple-mobile-web-app-title'>
+  <meta content='yes' name='apple-mobile-web-app-capable'>
+  <meta content='black' name='apple-mobile-web-app-status-bar-style'>
+  <%= stylesheet_link_tag  "msite/application", :media => "all" %>
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag "msite/application" %>
+</head>
+<body>
+  <article data-role="page">
+    <%= yield %>
+  </article>
+</body>
+</html>
